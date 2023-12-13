@@ -1,0 +1,72 @@
+  <div *ngIf="currentWeather.length > 0" class="current-weather-card">
+    <div *ngFor="let weather of currentWeather">
+      <h2 class="text-center">Current Weather - {{ weather.name }}</h2>
+      <div class="weather-details">
+        <div class="temperature">
+          <p class="mb-1">Temperature</p>
+          <div>
+            <div *ngIf="unit === 'C'">{{ weather.tempF }}°C</div>
+            <div *ngIf="unit === 'F'">{{ weather.tempF }}°F</div>
+          </div>
+        </div>
+
+        <div class="temp-box">
+          <p class="mb-1">High Temp</p>
+          <div>
+            <div *ngIf="unit === 'C'">{{ weather.tempHighC }}°C</div>
+            <div *ngIf="unit === 'F'">{{ weather.tempHighF }}°F</div>
+          </div>
+        </div>
+
+        <div class="temp-box">
+          <p class="mb-1">Low Temp</p>
+          <div>
+            <div *ngIf="unit === 'C'">{{ weather.tempLowC }}°C</div>
+            <div *ngIf="unit === 'F'">{{ weather.tempLowF }}°F</div>
+          </div>
+        </div>
+
+        <div class="forecast-info">Forecast: {{ weather.forecast }}</div>
+        <img [src]="'http://openweathermap.org/img/wn/' + weather.icon + '.png'" alt="Weather Icon">
+      </div>
+    </div>
+  </div>
+
+   <div *ngIf="forecast" class="forecast-section">
+    <h2 class="text-center">5 Day Forecast - {{ forecast.name }}</h2>
+    </div>
+   
+    <div *ngIf="forecast" class="forecast-section">
+    <div class="row">
+    <!--<div class="forecast-card" *ngFor="let day of forecast.fiveDayForecast">-->
+    <div class="col" *ngFor="let day of forecast.fiveDayForecast">
+        <div class="card">
+          <div class="card-body">
+            <div class="forecast-details">
+              <div class="forecast-image">
+                <img [src]="'http://openweathermap.org/img/wn/' + day.icon + '.png'" alt="Forecast Icon">
+              </div>
+            <div class="forecast-info">
+              <h3>{{ day.date }}</h3>
+              <div>Forecast: {{ day.forecast }}</div>
+              <div class="temp-box">
+                <p class="mb-1">Low Temp</p>
+                <div>
+                  <div *ngIf="unit === 'C'">{{ day.tempLowC }}°C</div>
+                  <div *ngIf="unit === 'F'">{{ day.tempLowF }}°F</div>
+                </div>
+              </div>
+              <div class="temp-box">
+                <p class="mb-1">High Temp</p>
+                <div>
+                  <div *ngIf="unit === 'C'">{{ day.tempHighC }}°C</div>
+                  <div *ngIf="unit === 'F'">{{ day.tempHighF }}°F</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+

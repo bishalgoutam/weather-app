@@ -1,0 +1,22 @@
+.high-temp{
+    margin-left:30%;
+    color: #a0a0a0;
+}
+
+.low-temp{
+    margin-left: 20%;
+    color: #a0a0a0;
+}
+.add-city{
+    min-height: 23rem;
+
+    #add-city{
+        width: 14rem;
+    }
+    
+    #plus-icon{
+        width: 6rem;
+        margin-top: 4rem;
+    }
+
+}
